@@ -1,0 +1,9 @@
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\ExcelToXml.csproj.ResolveComReference.cache
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\ExcelToXml.csproj.CoreCompileInputs.cache
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\ExceltoXml.exe.config
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\ExceltoXml.exe
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\ExceltoXml.pdb
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\ExceltoXml.exe.CodeAnalysisLog.xml
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\ExceltoXml.exe.lastcodeanalysissucceeded
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\ExceltoXml.exe
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\ExceltoXml.pdb

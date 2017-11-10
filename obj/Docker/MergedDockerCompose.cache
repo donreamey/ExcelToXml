@@ -1,0 +1,11 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  exceltoxml:
+    build:
+      context: C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1
+      dockerfile: Dockerfile
+    image: exceltoxml
+version: '3.0'

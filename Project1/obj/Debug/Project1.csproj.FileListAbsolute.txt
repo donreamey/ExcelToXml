@@ -1,0 +1,8 @@
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\Project1.exe.config
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\Project1.exe
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\bin\Debug\Project1.pdb
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\Project1.csproj.ResolveComReference.cache
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\Project1.csproj.CoreCompileInputs.cache
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\Project1.exe
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\Project1.pdb
+C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1\obj\Debug\Project1.csprojResolveAssemblyReference.cache

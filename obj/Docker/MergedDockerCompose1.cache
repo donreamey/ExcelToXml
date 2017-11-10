@@ -1,0 +1,22 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  exceltoxml:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1
+      dockerfile: Dockerfile
+    entrypoint: cmd /c "set DISABLE_PERFORMANCE_DEBUGGER=1 & C:\\remote_debugger\\x64\\msvsmon.exe
+      /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn
+      /nowowwarn /timeout:2147483646"
+    image: exceltoxml:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.program: C:\app\bin\Debug\ExceltoXml.exe
+      com.microsoft.visualstudio.debuggee.workingdirectory: C:\app
+    volumes:
+    - C:\Users\donre\Documents\Visual Studio 2017\Projects\Project1\Project1:C:\app:rw
+    - D:\visualstudio\Common7\IDE\Remote Debugger:C:\remote_debugger:ro
+version: '3.0'
