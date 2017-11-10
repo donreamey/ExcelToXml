@@ -128,6 +128,7 @@ namespace Project1
 
                 int count = activeSheet.Rows.Count;
 
+                // Get headers for from the spreadsheet.
                 var headers = GetHeaders(activeSheet);
                 bool moreRows = false;
 
