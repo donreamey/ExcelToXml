@@ -98,10 +98,11 @@ namespace Project1
                 string.Empty,
                 string.Empty,
                 string.Empty,
-                string.Empty,
+                userName,
                 string.Empty);
 
-            String outPutFileName = outputFile + lastName + row + ".xml";
+            //String outPutFileName = outputFile + lastName + row + ".xml";
+            String outPutFileName = "Personnel" + row + ".xml";
             Console.WriteLine("writing file "+ outPutFileName +" for user: " + lastName +", "+firstName);
             var stream = System.IO.File.Create( outPutFileName ); ;
             stream.Write(ASCIIEncoding.ASCII.GetBytes(data.ToCharArray()), 0, data.Length);
