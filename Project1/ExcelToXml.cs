@@ -5,55 +5,54 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Project1
 {
-    class ExcelToXml
+    internal class ExcelToXml
     {
 
-        static private void BuildXml(Dictionary<string, string> map, string outputFile, int row)
+        private static void BuildXml(Dictionary<string, string> map, string outputFile, int row)
         {
-            string xmlData =
-              "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-              "<DOC>" +
-                "<HEADER> " +
-                 "<MESSAGETYPEID>{0}</MESSAGETYPEID> " +
-                  "<DESTINATIONNAME>{1}</DESTINATIONNAME>" +
-                  "<MESSAGEQUEUEID>{2}</MESSAGEQUEUEID>" +
-                  "<MESSAGELOGTIME>{3}</MESSAGELOGTIME>" +
-                "</HEADER>" +
-                "<ROW>" +
-                  "<FLAG>{4}</FLAG>" +
-                  "<ROWID>{5}</ROWID>" +
-                  "<COLUMN>" +
-                    "<EMP_ID>{6}</EMP_ID>" +
-                    "<LASTNAME>{7}</LASTNAME>" +
-                    "<FIRSTNAME>{8}</FIRSTNAME>" +
-                    "<MI>{9}</MI>" +
-                    "<HIERARCHY>{10}</HIERARCHY>" +
-                    "<SSN />" +
-                    "<ADDRESS1>{11}</ADDRESS1>" +
-                    "<ADDRESS2 />" +
-                    "<CITY>{12}</CITY>" +
-                    "<STATE>{13}</STATE>" +
-                    "<ZIPCODE>{14}</ZIPCODE>" +
-                    "<EM_CONTACT>{15}</EM_CONTACT>" +
-                    "<EM_RELATN>{16}</EM_RELATN>" +
-                    "<EM_PHONE>{17}</EM_PHONE>" +
-                    "<EM_ADDRESS>{18}</EM_ADDRESS>" +
-                    "<EM_CITY>{19}</EM_CITY>" +
-                    "<EM_STATE>{20}</EM_STATE>" +
-                    "<EM_ZIP>{21}</EM_ZIP>" +
-                    "<GENDER>{22}</GENDER>" +
-                    "<BIRTH_DATE>{23}</BIRTH_DATE>" +
-                    "<PSLSTADATE>{24}</PSLSTADATE>" +
-                    "<PSLENDDATE />" +
-                    "<RANK>{25}</RANK>" +
-                    "<VENDOR />" +
-                    "<PIN />" +
-                    "<OSN />" +
-                    "<USERNAME>{26}</USERNAME>" +
-                    "<PASSWORD>{27}</PASSWORD>" +
-                  "</COLUMN>" +
-                "</ROW>" +
-              "</DOC>";
+            const string xmlData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                                   "<DOC>" +
+                                   "<HEADER> " +
+                                   "<MESSAGETYPEID>{0}</MESSAGETYPEID> " +
+                                   "<DESTINATIONNAME>{1}</DESTINATIONNAME>" +
+                                   "<MESSAGEQUEUEID>{2}</MESSAGEQUEUEID>" +
+                                   "<MESSAGELOGTIME>{3}</MESSAGELOGTIME>" +
+                                   "</HEADER>" +
+                                   "<ROW>" +
+                                   "<FLAG>{4}</FLAG>" +
+                                   "<ROWID>{5}</ROWID>" +
+                                   "<COLUMN>" +
+                                   "<EMP_ID>{6}</EMP_ID>" +
+                                   "<LASTNAME>{7}</LASTNAME>" +
+                                   "<FIRSTNAME>{8}</FIRSTNAME>" +
+                                   "<MI>{9}</MI>" +
+                                   "<HIERARCHY>{10}</HIERARCHY>" +
+                                   "<SSN />" +
+                                   "<ADDRESS1>{11}</ADDRESS1>" +
+                                   "<ADDRESS2 />" +
+                                   "<CITY>{12}</CITY>" +
+                                   "<STATE>{13}</STATE>" +
+                                   "<ZIPCODE>{14}</ZIPCODE>" +
+                                   "<EM_CONTACT>{15}</EM_CONTACT>" +
+                                   "<EM_RELATN>{16}</EM_RELATN>" +
+                                   "<EM_PHONE>{17}</EM_PHONE>" +
+                                   "<EM_ADDRESS>{18}</EM_ADDRESS>" +
+                                   "<EM_CITY>{19}</EM_CITY>" +
+                                   "<EM_STATE>{20}</EM_STATE>" +
+                                   "<EM_ZIP>{21}</EM_ZIP>" +
+                                   "<GENDER>{22}</GENDER>" +
+                                   "<BIRTH_DATE>{23}</BIRTH_DATE>" +
+                                   "<PSLSTADATE>{24}</PSLSTADATE>" +
+                                   "<PSLENDDATE />" +
+                                   "<RANK>{25}</RANK>" +
+                                   "<VENDOR />" +
+                                   "<PIN />" +
+                                   "<OSN />" +
+                                   "<USERNAME>{26}</USERNAME>" +
+                                   "<PASSWORD>{27}</PASSWORD>" +
+                                   "</COLUMN>" +
+                                   "</ROW>" +
+                                   "</DOC>";
 
             string xmlString = string.Empty;
             string messageTypeId = map.ContainsKey("MESSAGETYPEID") ? map["MESSAGETYPEID"] : string.Empty;
@@ -111,7 +110,12 @@ namespace Project1
 
         public static void Main(string[] args)
         {
-            Excel.Application xlApp = new Excel.Application();
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            var xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = null;
             try
             {
@@ -137,19 +141,18 @@ namespace Project1
 
                 Console.WriteLine("Opening file " + args[0] + " for input...");
 
-                int x = xlWorkbook.Worksheets.Count;
+                var x = xlWorkbook.Worksheets.Count;
 
                 Excel.Worksheet activeSheet = xlWorkbook.ActiveSheet;
 
-                int count = activeSheet.Rows.Count;
+                var count = activeSheet.Rows.Count;
 
                 // Get headers for from the spreadsheet.
                 var headers = GetHeaders(activeSheet);
-                bool moreRows = false;
 
                 for (int i = 2; i < count; i++)
                 {
-                    var map = CreateRowMapping(activeSheet, headers, i, out moreRows);
+                    var map = CreateRowMapping(activeSheet, headers, i, out var moreRows);
                     if (!moreRows)
                     {
                         break;
@@ -160,17 +163,18 @@ namespace Project1
             finally
             {
                 Console.WriteLine("Preparing to shutdown Excel");
-                xlWorkbook.Close();
+                xlWorkbook?.Close();
+
                 xlApp.Quit();
                 Console.WriteLine("Excel should be shut down");
             }
 
         }
 
-        static private List<string> GetHeaders(Excel.Worksheet sheet)
+        private static List<string> GetHeaders(Excel.Worksheet sheet)
         {
-            List<string> headers = new List<string>();
-            int headerRow = 1;
+            var headers = new List<string>();
+            var headerRow = 1;
             for (int i = 1; i < 15; i++)
             {
                 Excel.Range range = sheet.Cells[headerRow, i];
