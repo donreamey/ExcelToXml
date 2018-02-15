@@ -1,0 +1,7 @@
+C:\repos\GitHub\ExcelToXml\Project1\bin\x64\Release\ExceltoXml.exe.config
+C:\repos\GitHub\ExcelToXml\Project1\bin\x64\Release\ExceltoXml.exe
+C:\repos\GitHub\ExcelToXml\Project1\bin\x64\Release\ExceltoXml.pdb
+C:\repos\GitHub\ExcelToXml\Project1\obj\x64\Release\ExcelToXml.csproj.ResolveComReference.cache
+C:\repos\GitHub\ExcelToXml\Project1\obj\x64\Release\ExcelToXml.csproj.CoreCompileInputs.cache
+C:\repos\GitHub\ExcelToXml\Project1\obj\x64\Release\ExceltoXml.exe
+C:\repos\GitHub\ExcelToXml\Project1\obj\x64\Release\ExceltoXml.pdb

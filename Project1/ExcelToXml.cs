@@ -184,8 +184,24 @@ namespace Project1
             return headers;
         }
 
-        static Dictionary<string, string> CreateRowMapping(Excel.Worksheet sheet, List<string> headers, int dataRow, out bool moreRows)
+        private static Dictionary<string, string> CreateRowMapping(Excel.Worksheet sheet, List<string> headers,
+            int dataRow, out bool moreRows)
         {
+            if (sheet == null)
+            {
+                throw new ArgumentNullException(nameof(sheet));
+            }
+
+            if (headers == null)
+            {
+                throw new ArgumentNullException(nameof(headers));
+            }
+
+            if (dataRow <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(dataRow));
+            }
+
             moreRows = true;
             var map = new Dictionary<string, string>();
             Excel.Range moreRowsRange = sheet.Cells[dataRow, 1];
@@ -221,7 +237,7 @@ namespace Project1
         }
 
 
-        public static string ConvertToDateTime(string strExcelDate)
+        private static string ConvertToDateTime(string strExcelDate)
         {
             double excelDate;
             try

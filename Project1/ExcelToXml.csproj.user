@@ -17,4 +17,16 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>C:\Users\donre\Documents\TriTech1.xlsx d:\</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartArguments>C:\Users\donre\Documents\TriTech1.xlsx d:\</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <StartArguments>C:\Users\donre\Documents\TriTech1.xlsx d:\</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>C:\Users\donre\Documents\TriTech1.xlsx d:\</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <StartArguments>C:\Users\donre\Documents\TriTech1.xlsx d:\</StartArguments>
+  </PropertyGroup>
 </Project>
