@@ -79,8 +79,8 @@ namespace Project1
                 flag,
                 rowId,
                 empId,
-                firstName,
                 lastName,
+                firstName,
                 middleInitial,
                 hierarchy,
                 string.Empty,
@@ -111,18 +111,32 @@ namespace Project1
 
         public static void Main(string[] args)
         {
-            if (args.Length != 2)
-            {
-                Console.WriteLine("usage ExcelToXml <path to xslx> <output path>");
-                return;
-            }
-
             Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(args[0]); ;
-
-            Console.WriteLine("Opening file " + args[0] + " for input...");
+            Excel.Workbook xlWorkbook = null;
             try
             {
+                if (args.Length != 2)
+                {
+                    Console.WriteLine("usage ExcelToXml <path to xslx> <output path>");
+                    return;
+                }
+
+                if ( !System.IO.File.Exists(args[0]))
+                {
+                    Console.WriteLine("File " + args[0] + " does not exist.");
+                    return;
+                }
+
+                if ( !System.IO.Directory.Exists(args[1]))
+                {
+                    Console.WriteLine("The directory " + args[1] + " does not exist.");
+                    return;
+                }
+ 
+                xlWorkbook = xlApp.Workbooks.Open(args[0]); ;
+
+                Console.WriteLine("Opening file " + args[0] + " for input...");
+
                 int x = xlWorkbook.Worksheets.Count;
 
                 Excel.Worksheet activeSheet = xlWorkbook.ActiveSheet;
