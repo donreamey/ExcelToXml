@@ -101,7 +101,18 @@ namespace Project1
                 string.Empty);
 
             //String outPutFileName = outputFile + lastName + row + ".xml";
-            String outPutFileName = "Personnel" + row + ".xml";
+
+            String outPutFileName = String.Empty;
+
+            if (outputFile.EndsWith("\\"))
+            {
+                outPutFileName = outputFile + "Personnel" + --row + ".xml";
+            }
+            else
+            {
+                outPutFileName = outputFile + "\\" + "Personnel" + --row + ".xml";
+            }
+
             Console.WriteLine("writing file "+ outPutFileName +" for user: " + lastName +", "+firstName);
             var stream = System.IO.File.Create( outPutFileName ); ;
             stream.Write(ASCIIEncoding.ASCII.GetBytes(data.ToCharArray()), 0, data.Length);
