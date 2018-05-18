@@ -239,7 +239,12 @@ namespace Project1
                 }
                 else
                 {
-                    map.Add(headers[i - 1], range.Text);
+                    String currentHeader = headers[i - 1].Trim();
+                    if (currentHeader.Equals(String.Empty))
+                    {
+                        continue;
+                    }
+                    map.Add(currentHeader, range.Text);
                 }
                 
             }
